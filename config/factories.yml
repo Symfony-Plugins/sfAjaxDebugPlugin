@@ -1,0 +1,6 @@
+default:
+  logger:
+    param:
+      loggers:
+        sf_web_debug:
+          class: sfAjaxDebugLogger

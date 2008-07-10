@@ -1,0 +1,54 @@
+= sfAjaxDebugPlugin =
+
+This plugin provides a way to make the web debug toolbar useful again
+for AJAX applications.
+
+== Author ==
+
+Andreas Ferber, [mailto:af+symfony@chaos-agency.de]
+
+== License ==
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+== Installation ==
+
+  * At the moment, you have to apply the patch from trac ticket #3937
+    (http://trac.symfony-project.org/ticket/3937) to the  symfony core.
+  * Install the plugin:
+    {{{
+    symfony plugin-install sfAjaxDebugPlugin
+    }}}
+  * Enable the {{{sfAjaxDebug}}} module in your applications {{{settings.yml}}}:
+    {{{
+    all:
+      .settings:
+        enabled_modules: [sfAjaxDebug]
+    }}}
+  * Clear the symfony cache:
+    {{{
+    symfony cc
+    }}}
+
+== Usage ==
+
+When the plugin is activated, on every AJAX request to the server the
+web debug toolbar is updated to reflect the last request.
+
+If you don't want to use the default routes provided by the plugin, you
+can disable them in your {{{app.yml}}} configuration:
+{{{
+all:
+  sf_ajax_debug:
+    register_routes: off
+}}}
+
+== Compatibility ==
+
+Was tested against Symfony version 1.1.0, with the patch from ticket #3937.
+
+== History ==
+
+=== 0.1.0 ===
+  * First beta release.
