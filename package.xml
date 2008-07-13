@@ -35,6 +35,7 @@
       <dir name="config">
         <file role="data" name="config.php" />
         <file role="data" name="factories.yml" />
+        <file role="data" name="settings.yml" />
       </dir>
       <dir name="lib">
         <file role="data" name="sfAjaxDebugRouting.class.php" />
@@ -50,7 +51,8 @@
             <file role="data" name="view.yml" />
           </dir>
           <dir name="templates">
-            <file role="data" name="jsSuccess.php" />
+            <file role="data" name="cssSuccess.css.php" />
+            <file role="data" name="jsSuccess.js.php" />
           </dir>
         </dir>
       </dir>
