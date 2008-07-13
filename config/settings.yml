@@ -1,0 +1,6 @@
+# Defaults for sfAjaxDebugPlugin
+all:
+  .settings:
+    ajax_debug:          true
+    ajax_debug_routes:   true
+    ajax_debug_requests: 10

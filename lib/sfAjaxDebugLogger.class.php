@@ -53,6 +53,10 @@ class sfAjaxDebugLogger extends sfWebDebugLogger {
             && $this->context->has('response')
             && $this->context->getRequest()->isXmlHttpRequest()
         ) {
+            if ($firstEntry = $this->context->getActionStack()->getFirstEntry()) {
+                $headers['X-sfAjaxDebug-Module'] = $firstEntry->getModuleName();
+                $headers['X-sfAjaxDebug-Action'] = $firstEntry->getActionName();
+            }
             $headers['X-sfAjaxDebug-Token'] = $this->token;
         }
 
@@ -96,6 +100,8 @@ class sfAjaxDebugLogger extends sfWebDebugLogger {
 
         $scriptUrl = $this->context->getController()->genUrl('sfAjaxDebug/js');
         $assets = sprintf('<script type="text/javascript" src="%s"></script>', $scriptUrl);
+        $cssUrl = $this->context->getController()->genUrl('sfAjaxDebug/css');
+        $assets .= sprintf('<link rel="stylesheet" type="text/css" media="screen" href="%s" />', $cssUrl);
         $content = str_ireplace('</head>', $assets.'</head>', $content);
 
         return $content;

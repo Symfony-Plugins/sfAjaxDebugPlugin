@@ -25,6 +25,7 @@ class sfAjaxDebugRouting {
 
         // prepend our routes
         $r->prependRoute('sf_ajax_debug_get', '/sfAjaxDebug/:token', array('module' => 'sfAjaxDebug', 'action' => 'get'));
+        $r->prependRoute('sf_ajax_debug_css', '/sfAjaxDebug/main.css', array('module' => 'sfAjaxDebug', 'action' => 'css'));
         $r->prependRoute('sf_ajax_debug_js', '/sfAjaxDebug/main.js', array('module' => 'sfAjaxDebug', 'action' => 'js'));
     }
 

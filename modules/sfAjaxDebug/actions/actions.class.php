@@ -15,8 +15,14 @@
  */
 class sfAjaxDebugActions extends sfActions {
 
-    public function executeJs() {
+    public function executeJs($request) {
         sfConfig::set('sf_web_debug', false);
+        $request->setRequestFormat('js');
+    }
+
+    public function executeCss($request) {
+        sfConfig::set('sf_web_debug', false);
+        $request->setRequestFormat('css');
     }
 
     public function executeGet() {
